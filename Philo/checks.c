@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nemethnikol <nemethnikol@student.42.fr>    +#+  +:+       +#+        */
+/*   By: nnemeth <nnemeth@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:45:27 by nemethnikol       #+#    #+#             */
-/*   Updated: 2022/07/26 16:14:57 by nemethnikol      ###   ########.fr       */
+/*   Updated: 2022/09/09 15:04:44 by nnemeth          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,10 @@ int	ft_atoi_check(char *str)
 		i++;
 	}
 	return (value);
+}
+
+void	error(void)
+{
+	write(2, "Error\n", 7);
+	exit (0);
 }

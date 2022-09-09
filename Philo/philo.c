@@ -3,30 +3,53 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nemethnikol <nemethnikol@student.42.fr>    +#+  +:+       +#+        */
+/*   By: nnemeth <nnemeth@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:27 by nemethnikol       #+#    #+#             */
-/*   Updated: 2022/08/22 12:57:25 by nemethnikol      ###   ########.fr       */
+/*   Updated: 2022/09/09 19:02:36 by nnemeth          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	philosophate(t_table *tab)
+int	philosophate(t_table *table)
 {
 	int	i;
 
+
 	i = -1;
-	while (++i < tab->n_philos)
+
+	if (table->n_philos == 1)
+		one_philo(table->philos);
+	while (++i < table->n_philos)
 	{
-		if (pthread_create(&tab->philos[i].th, NULL, &philo_life,
-			&tab->philos[i]));
+		if (pthread_create(&table->philos[i].th, NULL, &philo_life,
+				&table->philos[i]))
+			return (-1);
 	}
+	pthread_create(&table->death, NULL, &dead_yet, &table);
 	i = -1;
-	while (++i < tab->n_philos)
-	(
-		if (pthread_join(&tab->philos[i].th, NULL) != 0)
-			return (error);
-	)
+	while (++i < table->n_philos)
+	{
+		if (pthread_join(table->philos[i].th, NULL) != 0)
+			return (0);
+	}
+	pthread_join(table->death, NULL);
 	return (0);
+}
+
+void	one_philo(t_philo *philo)
+{
+	long int time;
+	
+	time = ft_set_time(philo);
+	while (1)
+	{
+		if (ft_set_time(philo) - time >= philo->table->time_to_die)
+		{
+			philo->table->dead++;
+			write_status("Is dead", philo);
+			break ;
+		}
+	}
 }

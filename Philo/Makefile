@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nemethnikol <nemethnikol@student.42.fr>    +#+  +:+       +#+         #
+#    By: nnemeth <nnemeth@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/26 16:23:59 by nemethnikol       #+#    #+#              #
-#    Updated: 2022/07/26 16:26:38 by nemethnikol      ###   ########.fr        #
+#    Updated: 2022/09/09 15:23:27 by nnemeth          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,3 +21,16 @@ OBJS = $(SRC:.c=.o)
 RM  = rm -fr
 
 SRC = *.c
+
+all: $(NAME)
+
+$(NAME):	$(OBJS)
+			$(CC) $(CFLAGS) -o $(NAME) $(SRC)
+
+clean:
+			$(RM) $(OBJS)
+
+fclean:		clean
+			$(RM) $(NAME)
+
+re:			fclean all
