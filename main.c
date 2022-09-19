@@ -6,7 +6,7 @@
 /*   By: nnemeth <nnemeth@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:20:14 by nemethnikol       #+#    #+#             */
-/*   Updated: 2022/09/12 16:00:44 by nnemeth          ###   ########.fr       */
+/*   Updated: 2022/09/19 17:31:46 by nnemeth          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,6 @@ int	main(int argc, char **argv)
 			philosophate(&table);
 		}
 	}
-	// pthread_mutex_lock(&table.mutex_dead);
-	// pthread_create(&table.death, NULL, &dead_yet, (void *)&table);
-	// pthread_mutex_unlock(&table.mutex_dead);
-	// pthread_join(table.death, NULL);
-	// while (++i < table.n_philos)
-	// {
-	// 	if (pthread_join(table.philos[i].th, NULL) != 0)
-	// 		return (0);
-	// }
+	free(table.philos);
 	return (0);
 }

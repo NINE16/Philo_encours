@@ -6,7 +6,7 @@
 /*   By: nnemeth <nnemeth@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:13:18 by nemethnikol       #+#    #+#             */
-/*   Updated: 2022/09/12 17:39:14 by nnemeth          ###   ########.fr       */
+/*   Updated: 2022/09/19 17:31:29 by nnemeth          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,7 @@ void	*philo_life(void *data)
 		if (take_fork(philo, table))
 			break ;
 		if (table->dead == 0)
-		{
 			(start_eat(philo, table));
-			// break ;
-		}
 		if (table->dead == 0)
 			sleeping(philo, table);
 		if (table->dead == 0)
@@ -43,19 +40,14 @@ int	take_fork(t_philo *philo, t_table *table)
 	int	i;
 
 	i = 0;
-	pthread_mutex_lock(&philo->fork);
 	philo->start_time = table->philos->start_time;
+	pthread_mutex_lock(&philo->fork);
 	pthread_mutex_lock(&philo->table->philos[philo->next].fork);
 	if (table->dead == 0)
 	{
 		write_status(GREEN "Has taken the right fork 🥢" , philo);
 		write_status(GREEN "Has taken the left fork 🥢", philo);
 	}
-	// write_status("Is eating 🍔", philo);
-	// if (table->quant_food != -1)
-	// 	philo->n_meals++;
-	// philo->last_meal = ft_set_time(philo);
-	// ft_usleep(table->time_to_eat, philo);
 	return (0);
 }
 
@@ -79,12 +71,8 @@ int drop_forks(t_philo *philo)
 
 void	sleeping(t_philo *philo, t_table *table)
 {
-	// if (table->dead == 0)
 	write_status(RED "is sleeping 🧐", philo);
-	// pthread_mutex_unlock(&table->write);
 	ft_usleep(table->time_to_sleep, philo, table);
-	// pthread_mutex_lock(&table->write);
-	// pthread_mutex_unlock(&table->write);
 }
 
 void	write_status(char *str, t_philo *philo)

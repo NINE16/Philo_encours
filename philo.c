@@ -6,7 +6,7 @@
 /*   By: nnemeth <nnemeth@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:27 by nemethnikol       #+#    #+#             */
-/*   Updated: 2022/09/12 15:33:51 by nnemeth          ###   ########.fr       */
+/*   Updated: 2022/09/19 17:18:00 by nnemeth          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	philosophate(t_table *table)
 			return (0);
 	}
 	pthread_join(table->death, NULL);
+	pthread_mutex_destroy(&table->mutex_dead);
+	pthread_mutex_destroy(&table->write);
 	return (0);
 }
 
@@ -41,6 +43,9 @@ void	one_philo(t_philo *philo)
 	long int	time;
 
 	time = ft_set_time(philo);
+	pthread_mutex_lock(&philo->fork);
+	write_status(GREEN "Has taken the right fork 🥢" , philo);
+	pthread_mutex_unlock(&philo->fork);
 	while (1)
 	{
 		if (ft_set_time(philo) - time >= philo->table->time_to_die)
