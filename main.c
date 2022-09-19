@@ -6,7 +6,7 @@
 /*   By: nnemeth <nnemeth@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:20:14 by nemethnikol       #+#    #+#             */
-/*   Updated: 2022/09/19 17:31:46 by nnemeth          ###   ########.fr       */
+/*   Updated: 2022/09/19 18:06:34 by nnemeth          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,13 @@ t_philo	*create_philos(t_table *table, t_philo *philos)
 {
 	int		i;
 
-	//philos.l_fork = malloc(sizeof(pthread_mutex_t) * table->n_philos);
 	philos = malloc(sizeof(t_philo) * table->n_philos);
 	i = 0;
 	philos->start_time = ft_set_now();
 	while (i < table->n_philos)
 	{
 		philos[i].id = i + 1;
-		if ( i == table->n_philos - 1)
+		if (i == table->n_philos - 1)
 			philos[i].next = 0;
 		else
 			philos[i].next = i + 1;
@@ -32,11 +31,6 @@ t_philo	*create_philos(t_table *table, t_philo *philos)
 		philos[i].wait = 0;
 		philos[i].table = table;
 		pthread_mutex_init(&philos[i].fork, NULL);
-		// pthread_mutex_init(&philos[i].r_fork, NULL);
-		// if (i == table->n_philos - 1)
-		// 	philos[i].r_fork = philos[0].l_fork;
-		// else if (i != 0)
-		// 	philos[i - 1].r_fork = philos[i].l_fork;
 		i++;
 	}
 	pthread_mutex_init(&table->write, NULL);
@@ -58,7 +52,6 @@ int	get_args(int argc, char **argv, t_table *table)
 		|| table->time_to_die < 0
 		|| table->time_to_eat < 0 || table->time_to_sleep < 0)
 	{
-			// error();
 		return (1);
 	}
 	return (0);

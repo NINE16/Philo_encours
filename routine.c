@@ -6,7 +6,7 @@
 /*   By: nnemeth <nnemeth@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:13:18 by nemethnikol       #+#    #+#             */
-/*   Updated: 2022/09/19 17:31:29 by nnemeth          ###   ########.fr       */
+/*   Updated: 2022/09/19 18:08:12 by nnemeth          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	take_fork(t_philo *philo, t_table *table)
 	pthread_mutex_lock(&philo->table->philos[philo->next].fork);
 	if (table->dead == 0)
 	{
-		write_status(GREEN "Has taken the right fork 🥢" , philo);
+		write_status(GREEN "Has taken the right fork 🥢", philo);
 		write_status(GREEN "Has taken the left fork 🥢", philo);
 	}
 	return (0);
@@ -62,7 +62,7 @@ int	start_eat(t_philo *philo, t_table *table)
 	return (0);
 }
 
-int drop_forks(t_philo *philo)
+int	drop_forks(t_philo *philo)
 {
 	pthread_mutex_unlock(&philo->fork);
 	pthread_mutex_unlock(&philo->table->philos[philo->next].fork);
@@ -73,15 +73,4 @@ void	sleeping(t_philo *philo, t_table *table)
 {
 	write_status(RED "is sleeping 🧐", philo);
 	ft_usleep(table->time_to_sleep, philo, table);
-}
-
-void	write_status(char *str, t_philo *philo)
-{
-	long int	time;
-
-	time = ft_set_time(philo);
-	pthread_mutex_lock(&philo->table->write);
-	printf(WHITE "%s%ld ", "Time:", time);
-	printf(WHITE "  Philo %d    %s\n", philo->id, str);
-	pthread_mutex_unlock(&philo->table->write);
 }

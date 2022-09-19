@@ -6,7 +6,7 @@
 /*   By: nnemeth <nnemeth@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:45:27 by nemethnikol       #+#    #+#             */
-/*   Updated: 2022/09/09 15:04:44 by nnemeth          ###   ########.fr       */
+/*   Updated: 2022/09/19 18:08:42 by nnemeth          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,9 @@ void	error(void)
 {
 	write(2, "Error\n", 7);
 	exit (0);
+}
+
+int	ft_exit(void)
+{
+	return (1);
 }

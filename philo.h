@@ -6,7 +6,7 @@
 /*   By: nnemeth <nnemeth@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:06:15 by nemethnikol       #+#    #+#             */
-/*   Updated: 2022/09/12 17:39:04 by nnemeth          ###   ########.fr       */
+/*   Updated: 2022/09/19 18:20:16 by nnemeth          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@
 # define WHITE "\033[1;37m"
 # define PURPLE "\033[0;35m"
 # define GREY "\033[1;30m"
-
-
 
 typedef struct s_table	t_table;
 
@@ -82,5 +80,6 @@ long int	time_check(void);
 int			ft_exit(void);
 int			start_eat(t_philo *philo, t_table *table);
 int			drop_forks(t_philo *philo);
+void		checker(t_table *table, int meal, int i);
 
 #endif
