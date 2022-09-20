@@ -6,7 +6,7 @@
 /*   By: nnemeth <nnemeth@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:13:18 by nemethnikol       #+#    #+#             */
-/*   Updated: 2022/09/19 18:08:12 by nnemeth          ###   ########.fr       */
+/*   Updated: 2022/09/20 13:58:59 by nnemeth          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ int	take_fork(t_philo *philo, t_table *table)
 	pthread_mutex_lock(&philo->table->philos[philo->next].fork);
 	if (table->dead == 0)
 	{
-		write_status(GREEN "Has taken the right fork 🥢", philo);
 		write_status(GREEN "Has taken the left fork 🥢", philo);
+		write_status(GREEN "Has taken the right fork 🥢", philo);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nnemeth <nnemeth@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:20:14 by nemethnikol       #+#    #+#             */
-/*   Updated: 2022/09/19 18:06:34 by nnemeth          ###   ########.fr       */
+/*   Updated: 2022/09/20 13:55:57 by nnemeth          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ int	main(int argc, char **argv)
 			philosophate(&table);
 		}
 	}
+	else
+		error();
 	free(table.philos);
 	return (0);
 }
