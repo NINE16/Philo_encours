@@ -6,7 +6,7 @@
 /*   By: nnemeth <nnemeth@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:27 by nemethnikol       #+#    #+#             */
-/*   Updated: 2022/09/19 18:06:51 by nnemeth          ###   ########.fr       */
+/*   Updated: 2022/09/23 17:47:13 by nnemeth          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	one_philo(t_philo *philo)
 
 	time = ft_set_time(philo);
 	pthread_mutex_lock(&philo->fork);
-	write_status(GREEN "Has taken the right fork 🥢", philo);
+	write_status(GREEN "Has taken the left fork 🥢", philo);
 	pthread_mutex_unlock(&philo->fork);
 	while (1)
 	{
