@@ -6,7 +6,7 @@
 /*   By: nnemeth <nnemeth@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:13:18 by nemethnikol       #+#    #+#             */
-/*   Updated: 2022/09/20 13:58:59 by nnemeth          ###   ########.fr       */
+/*   Updated: 2022/09/26 18:09:56 by nnemeth          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ void	*philo_life(void *data)
 		if (table->dead == 0)
 			sleeping(philo, table);
 		if (table->dead == 0)
+		{
 			write_status(PURPLE "is thinking 🧐", philo);
+			usleep(50);
+		}
 	}
 	return (NULL);
 }
