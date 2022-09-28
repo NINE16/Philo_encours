@@ -6,7 +6,7 @@
 #    By: nnemeth <nnemeth@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/26 16:23:59 by nemethnikol       #+#    #+#              #
-#    Updated: 2022/09/20 11:06:03 by nnemeth          ###   ########.fr        #
+#    Updated: 2022/09/28 12:00:32 by nnemeth          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = philo
 
 CC = 	gcc
 
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror #-g -fsanitize=address
 
 OBJS = $(SRC:.c=.o)
 

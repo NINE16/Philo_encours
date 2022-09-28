@@ -6,7 +6,7 @@
 /*   By: nnemeth <nnemeth@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:06:15 by nemethnikol       #+#    #+#             */
-/*   Updated: 2022/09/19 18:20:16 by nnemeth          ###   ########.fr       */
+/*   Updated: 2022/09/28 12:24:30 by nnemeth          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ typedef struct s_philo
 	t_table			*table;
 	int				next;
 	int				last_meal;
-	int				wait;
 	int				n_meals;
 	int				id;
 	size_t			now;
@@ -57,7 +56,7 @@ typedef struct s_table
 	pthread_mutex_t	write;
 	pthread_mutex_t	mutex_dead;
 	pthread_t		death;
-	bool			dead;
+	int				dead;
 	int				max_eat;
 }	t_table;
 

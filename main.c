@@ -6,7 +6,7 @@
 /*   By: nnemeth <nnemeth@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:20:14 by nemethnikol       #+#    #+#             */
-/*   Updated: 2022/09/20 13:55:57 by nnemeth          ###   ########.fr       */
+/*   Updated: 2022/09/28 12:22:14 by nnemeth          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ t_philo	*create_philos(t_table *table, t_philo *philos)
 			philos[i].next = i + 1;
 		philos[i].n_meals = 0;
 		philos[i].last_meal = 0;
-		philos[i].wait = 0;
 		philos[i].table = table;
 		pthread_mutex_init(&philos[i].fork, NULL);
 		i++;
